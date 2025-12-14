@@ -1,0 +1,191 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    /* Cute Polka Dot Background */
+    background-color: #ffe6f2;
+    background-image: radial-gradient(#ffb7b2 20%, transparent 20%),
+                      radial-gradient(#ffb7b2 20%, transparent 20%);
+    background-position: 0 0, 25px 25px;
+    background-size: 50px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 340px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    text-align: center;
+    border-radius: 30px; 
+    border: 5px solid #ff9ec1;
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+    
+    animation: float 6s ease-in-out infinite;
+}
+
+h2 {
+    font-family: 'Fredoka', sans-serif;
+    color: #ff69b4;
+    font-size: 28px;
+    margin-top: 10px;
+    text-shadow: 2px 2px 0px #ffe6f2;
+    letter-spacing: 1px;
+}
+
+label {
+    color: #ff8da1;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+input {
+    width: 85%;
+    padding: 12px 15px;
+    margin-top: 15px;
+    border: 3px solid #ffd1dc;
+    border-radius: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    color: #ff69b4;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #fff0f5;
+}
+
+input::placeholder {
+    color: #ffc0cb;
+}
+
+input:focus {
+    border-color: #ff69b4;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+    transform: scale(1.02);
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px 35px;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ff9a9e);
+    background-size: 200% 200%;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    transition: all 0.3s ease;
+    animation: shimmer 3s infinite linear;
+}
+
+button:hover {
+    animation: jelly 0.5s;
+    background-position: right center;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.result {
+    margin-top: 25px;
+    text-align: left;
+    background: #fff0f5;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px dashed #ffb7b2;
+}
+
+.result p {
+    font-size: 16px;
+    color: #888;
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result span {
+    font-weight: bold;
+    color: #ff69b4;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+    min-width: 60px;
+    text-align: right;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+}
+
+.result span:not(:empty):hover {
+    transform: scale(1.2) rotate(-3deg);
+    cursor: default;
+}
+
+.bow {
+    position: absolute;
+    top: -25px;
+    right: -15px;
+    width: 60px;
+    height: 30px;
+    z-index: 10;
+    animation: wiggle 3s ease-in-out infinite;
+}
+
+.bow::before, .bow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: #ff0066;
+    border-radius: 50% 50% 0 50%;
+    transform: rotate(45deg);
+    border: 2px solid white;
+}
+
+.bow::before { left: 0; transform: rotate(15deg); }
+.bow::after { right: 0; transform: rotate(-15deg) scaleX(-1); }
+
+.bow span {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    width: 15px;
+    height: 15px;
+    background: #ff99cc;
+    border-radius: 50%;
+    z-index: 2;
+    border: 2px solid white;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes jelly {
+    0% { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); }
+    40% { transform: scale(0.75, 1.25); }
+    50% { transform: scale(1.15, 0.85); }
+    65% { transform: scale(0.95, 1.05); }
+    75% { transform: scale(1.05, 0.95); }
+    100% { transform: scale(1, 1); }
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
